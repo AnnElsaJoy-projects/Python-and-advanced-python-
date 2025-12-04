@@ -99,3 +99,117 @@ df = pd.DataFrame(data)
 df['AgePlusOne'] = df['Age'] + 1
 
 display(df)
+
+
+# CHANGING EVERYTHING AS SAME TABLE UPDATING AGE AS AGE PLUS ONE AND NDROP THE TABLE JOB 
+import pandas as pd
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charly', 'David'],
+    'Age': [25, 30, 35, 40],
+    'City': ['New york', 'Los Angeles', 'Chicago', 'Housten'],
+    'Job': ['Engineer', 'Plumber', 'Mechanic', 'Doctor']
+}
+
+df = pd.DataFrame(data)
+
+# Drop the Job column
+df = df.drop(columns=['Job'])
+
+# Create temporary AgePlusOne column
+df['AgePlusOne'] = df['Age'] + 1
+
+# Update the Age column
+df['Age'] = df['AgePlusOne']
+
+# Delete the temporary column
+df = df.drop(columns=['AgePlusOne'])
+
+display(df)
+  # DISPLAY NAMES ON SORTING AGE IN ASCENDING AND DESCENDING 
+## ASCENDING
+import pandas as pd
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charly', 'David'],
+    'Age': [25, 30, 35, 40],
+    'City': ['New york', 'Los Angeles', 'Chicago', 'Housten'],
+    'Job': ['Engineer', 'Plumber', 'Mechanic', 'Doctor']
+}
+
+df = pd.DataFrame(data)
+import pandas as pd
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charly', 'David'],
+    'Age': [26, 31, 36, 41],     # updated ages after +1
+    'City': ['New york', 'Los Angeles', 'Chicago', 'Housten']
+}
+
+df = pd.DataFrame(data)
+
+# Sort by Age in ascending order
+df = df.sort_values(by='Age', ascending=True)
+
+display(df)
+
+## DESCENDING
+
+import pandas as pd
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charly', 'David'],
+    'Age': [26, 31, 36, 41],     # updated ages after +1
+    'City': ['New york', 'Los Angeles', 'Chicago', 'Housten']
+}
+
+df = pd.DataFrame(data)
+
+# Sort by Age in ascending order
+df = df.sort_values(by='Age', ascending=False)
+
+display(df)
+
+
+## CREATING A DUPLICATE AND NULL VALUES IN THE DATA 
+import pandas as pd
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charly', 'David'],
+    'Age': [26, 31, 36, 41],
+    'City': ['New york', 'Los Angeles', 'Chicago', 'Housten']
+}
+
+df = pd.DataFrame(data)
+
+df = df.sort_values(by='Age', ascending=True)
+
+df.loc[len(df)] = ["David", 41, "Houston"]
+df.loc[len(df)] = ["Eric", None, "Seattle"]
+display(df)
+
+#REMOVINGV THE NULL VALUE AND THE DUPLICATE DATA 
+#if you want to remove duplicates based only on Name and Age, you can do this:
+
+import pandas as pd
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charly', 'David'],
+    'Age': [26, 31, 36, 41],
+    'City': ['New york', 'Los Angeles', 'Chicago', 'Housten']
+}
+
+df = pd.DataFrame(data)
+
+df.loc[len(df)] = ["David", 41, "Houston"]
+df.loc[len(df)] = ["Eric", None, "Seattle"]
+
+# Drop duplicates based only on Name and Age
+df = df.drop_duplicates(subset=['Name', 'Age'])
+
+df = df.dropna()
+df = df.sort_values(by='Age', ascending=True)
+
+display(df)
+
+
