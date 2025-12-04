@@ -15,3 +15,27 @@ y=k.values
  
 plt.bar(x,y,color="Black")
 plt.show
+
+
+#HISTOGRAM
+plt.hist(df["age"],color="Lavender",edgecolor="Black")
+plt.xlabel("Age")
+plt.ylabel("Frequency");
+plt.title("Age Distribution")
+plt.show()
+
+#data processing 
+X = df.drop(['name','survived',"fare"], axis=1)
+y=df['survived']
+display(X.head(3))
+
+from sklearn.preprocessing import LabelEncoder
+#ML only take inputs as numbers so that numbers is labelencoders 
+le=LabelEncoder()
+X['sex']=le.fit_transform(X['sex'])
+display(X.head())
+
+from sklearn.preprocessing import StandardScaler
+scaler=StandardScaler()
+X_scaled = X[['age']].copy()
+X_scaled
