@@ -1,0 +1,17 @@
+#creating graphs and charts in python 
+#data used is Titanic .csv
+
+import pandas as pd
+df=pd.read_csv("https://calmcode.io/static/data/titanic.csv")
+df.head(3)
+
+#data visualisation 
+import matplotlib.pyplot as plt
+k=df["sex"].value_counts()
+k
+#display the graph , colur can be chaged according to the wish .
+x=k.index
+y=k.values
+ 
+plt.bar(x,y,color="Black")
+plt.show
