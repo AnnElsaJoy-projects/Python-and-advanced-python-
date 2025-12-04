@@ -1,0 +1,101 @@
+import pandas as pd
+data={
+    'Name':['Alice','Bob','Charly','David'],
+    'Age':[25,30,35,40],
+    'City':['New york','Los Angeles','Chicago','Housten']
+}
+print (data)
+df = pd.DataFrame(data)
+display(df)
+
+import pandas as pd
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charly', 'David'],
+    'Age': [25, 30, 35, 40],
+    'City': ['New york', 'Los Angeles', 'Chicago', 'Housten']
+}
+
+df = pd.DataFrame(data)
+
+# Extract Name and Age as a table
+name_age_table = df[['Name', 'Age']]
+display(name_age_table)
+
+
+
+import pandas as pd
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charly', 'David'],
+    'Age': [25, 30, 35, 40],
+    'City': ['New york', 'Los Angeles', 'Chicago', 'Housten']
+}
+
+df = pd.DataFrame(data)
+
+# Display details of Alice only
+alice_details = df[df['Name'] == 'Alice']
+display(alice_details)
+
+#filtering upto age >30
+import pandas as pd
+
+# Original data
+data = {
+    'Name': ['Alice', 'Bob', 'Charly', 'David'],
+    'Age': [25, 30, 35, 40],
+    'City': ['New york', 'Los Angeles', 'Chicago', 'Housten']
+}
+
+# Create DataFrame
+df = pd.DataFrame(data)
+
+# Extract Name and Age as a table
+name_age_table = df[['Name', 'Age']]
+print("Name & Age Table:")
+print(name_age_table)
+
+# Filter Age greater than 30
+filtered_df = df[df['Age'] > 30]
+print("\nFiltered rows (Age > 30):")
+print(filtered_df)
+
+# Filtered Name & Age only
+filtered_name_age = df[df['Age'] > 30][['Name', 'Age']]
+print("\nFiltered Name & Age (Age > 30):")
+print(filtered_name_age)
+
+
+# adding job descriptions 
+import pandas as pd
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charly', 'David'],
+    'Age': [25, 30, 35, 40],
+    'City': ['New york', 'Los Angeles', 'Chicago', 'Housten'],
+    'Job': ['Engineer', 'Plumber', 'Mechanic', 'Doctor']  # added job column
+}
+
+df = pd.DataFrame(data)
+
+display(df[['Name', 'Job']])   # show Name and Job like a table
+
+
+#incresing age +1
+
+import pandas as pd
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charly', 'David'],
+    'Age': [25, 30, 35, 40],
+    'City': ['New york', 'Los Angeles', 'Chicago', 'Housten'],
+    'Job': ['Engineer', 'Plumber', 'Mechanic', 'Doctor']
+}
+
+df = pd.DataFrame(data)
+
+# Add new column AgePlusOne
+df['AgePlusOne'] = df['Age'] + 1
+
+display(df)
