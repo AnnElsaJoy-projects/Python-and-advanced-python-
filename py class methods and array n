@@ -1,0 +1,282 @@
+class Person:
+    def __init__(self, name, age):
+        self.name = name      # attribute
+        self.age = age        # attribute
+#method
+    def greet(self):
+        return f"Hello, my name is {self.name} and I am {self.age} years old."
+
+class Student:
+    def __init__(self, name, mark, subject, year):
+        self.name = name
+        self.mark = mark
+        self.subject = subject
+        self.year = year
+
+    def change(self, new_subject):
+        self.subject = new_subject
+
+    def increase_year(self):
+        self.year += 1
+
+    def display_info(self):
+        print(f"Name: {self.name}")
+        print(f"Mark: {self.mark}")
+        print(f"Subject: {self.subject}")
+        print(f"Year of Study: {self.year}")
+
+
+name = input("Enter student name: ")
+mark = int(input("Enter mark: "))
+subject = input("Enter subject: ")
+year = int(input("Enter year of study: "))
+
+s = Student(name, mark, subject, year)
+
+print("\n--- Student Details ---")
+s.display_info()
+
+new_subject = input("\nEnter new subject to change: ")
+s.change(new_subject)
+
+s.increase_year()
+
+print("\n--- Updated Student Details ---")
+s.display_info()
+
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius * self.radius
+
+    def perimeter(self):
+        return 2 * 3.14 * self.radius
+
+
+r = float(input("Enter the radius: "))
+c = Circle(r)
+
+print("Area:", c.area())
+print("Perimeter:", c.perimeter())
+
+class BankAccount:
+    def __init__(self, name, balance, acc_number):
+        self.name = name
+        self.balance = balance
+        self.acc_number = acc_number
+
+    def deposit(self, amount):
+        self.balance += amount
+
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+        else:
+            print("Insufficient balance")
+
+    def print_balance(self):
+        print(f"Account Balance: {self.balance}")
+
+
+name = input("Enter account holder name: ")
+balance = float(input("Enter initial balance: "))
+acc_number = input("Enter account number: ")
+
+account = BankAccount(name, balance, acc_number)
+
+amount = float(input("Enter deposit amount: "))
+account.deposit(amount)
+
+amount = float(input("Enter withdraw amount: "))
+account.withdraw(amount)
+
+account.print_balance()
+
+
+#dunder method
+class BankAccount:
+    def __init__(self, name, balance, acc_number):
+        self.name = name
+        self.balance = balance
+        self.acc_number = acc_number
+
+    def deposit(self, amount):
+        self.balance += amount
+
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+        else:
+            print("Insufficient balance")
+
+    def print_balance(self):
+        print(f"Balance: {self.balance}")
+
+
+name = input("Enter name: ")
+balance = float(input("Enter balance: "))
+acc_number = input("Enter account number: ")
+
+account = BankAccount(name, balance, acc_number)
+
+amount = float(input("Enter deposit amount: "))
+account.deposit(amount)
+
+amount = float(input("Enter withdraw amount: "))
+account.withdraw(amount)
+
+account.print_balance()
+
+
+
+#method overrridding ,inheritance,overloading
+class Animal:
+    def make_sound(self):
+        print("Generic animal sound")
+
+
+class Dog(Animal):
+    def make_sound(self):
+        print("Dog barks")
+
+
+class Cat(Animal):
+    def make_sound(self):
+        print("Cat meows")
+
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+class Employee(Person):
+    def __init__(self, name, age, salary):
+        super().__init__(name, age)
+        self.salary = salary
+
+name = input("Enter employee name: ")
+age = int(input("Enter employee age: "))
+salary = float(input("Enter employee salary: "))
+
+employee = Employee(name, age, salary)
+
+print(f"\nEmployee Name: {employee.name}")
+print(f"Employee Age: {employee.age}")
+print(f"Employee Salary: {employee.salary}")
+
+
+import numpy as np
+
+# 1D array
+arr1 = np.array([1, 2, 3, 4, 5])
+print("1D Array:", arr1)
+
+# 2D array
+arr2 = np.array([[10, 20, 30],
+                 [40, 50, 60]])
+print("2D Array:\n", arr2)
+
+
+
+
+#user input 1D array
+import numpy as np
+
+n = int(input("Enter number of elements for 1D array: "))
+elements = []
+
+for i in range(n):
+    val = int(input(f"Enter element {i+1}: "))
+    elements.append(val)
+
+arr1 = np.array(elements)
+print("1D Array:", arr1)
+
+
+#user input 2D array
+import numpy as np
+
+rows = int(input("Enter number of rows: "))
+cols = int(input("Enter number of columns: "))
+
+matrix = []
+
+for r in range(rows):
+    row = []
+    for c in range(cols):
+        val = int(input(f"Enter element ({r+1},{c+1}): "))
+        row.append(val)
+    matrix.append(row)
+
+arr2 = np.array(matrix)
+print("2D Array:\n", arr2)
+
+
+
+#size of the array
+import numpy as np
+
+# 1D array
+arr1 = np.array([10, 20, 30, 40, 50])
+print("1D Array:", arr1)
+print("Size of 1D array:", arr1.size)
+
+# 2D array
+arr2 = np.array([[1, 2, 3],
+                 [4, 5, 6],
+                 [7, 8, 9]])
+print("\n2D Array:\n", arr2)
+print("Size of 2D array:", arr2.size)
+
+
+
+
+# key NumPy array attributes. size,ndim,dtype,shape
+
+import numpy as np
+# 1D array
+arr1 = np.array([10, 20, 30, 40, 50])
+
+print("1D Array:", arr1)
+print("ndim:", arr1.ndim)
+print("dtype:", arr1.dtype)
+print("shape:", arr1.shape)
+
+# 2D array
+arr2 = np.array([[1, 2, 3],
+                 [4, 5, 6]])
+
+print("\n2D Array:\n", arr2)
+print("ndim:", arr2.ndim)
+print("dtype:", arr2.dtype)
+print("shape:", arr2.shape)
+
+#RESHAPING ARRAY
+import numpy as np
+arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+reshaped_arr = arr.reshape(3, 3)
+
+print("Original 1D Array:", arr)
+print("\nReshaped 3x3 Array:\n", reshaped_arr)
+
+
+# example of np.random.seed() with np.random.randint
+
+np.random.seed(42)
+print(np.random.randint(0,10,size=5))
+
+# stnd normal distribution
+uniform_random=np.random.randn(5)
+print(uniform_random)
+
+# ARRAY ARITHEMETIC OPERATIONS
+#sum,min,max,average np.random random numbers are genereated
+#synt:  rand_num = np.random.randn()
+
+   # generate random integers
+r=np.random.randint(1,10,size=8)
+print(r)
